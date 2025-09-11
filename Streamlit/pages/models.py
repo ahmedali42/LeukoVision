@@ -47,8 +47,11 @@ if section == "InceptionV3":
         model.summary(print_fn=lambda x: stream.write(x + "\n"))
         st.code(stream.getvalue())
     st.markdown('### Performace')
-    st.markdown("The training accuracy approaches 99.97%, while the validation accuracy reaches" \
-        " 98.29%, demonstrating the model’s strong ability to accurately classify different cell types.")
+    st.markdown(""" <div style="text-align: justify;">"
+    "The training accuracy approaches 99.97%, while the validation accuracy reaches" \
+        " 98.29%, demonstrating the model’s strong ability to accurately classify different cell types.
+                </div>
+                """,unsafe_allow_html=True)
     if st.toggle("Show InceptionV3 loss and accuracy plot"):
         st.image(white_bg('./Streamlit/pages/images/inception/loss_acc.png'), caption='Loss and accruacy plot from InceptionV3 training',use_container_width=True)
     st.markdown('The test set shows a very high accuracy of 98.28% and that is reflected in the digonal form of the confusion matrix.')
