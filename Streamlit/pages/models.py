@@ -62,8 +62,8 @@ if section == "InceptionV3":
     [{'selector': 'th', 'props': [('text-align', 'center')]},
      {'selector': 'td', 'props': [('text-align', 'center')]}]))
     report = pd.read_csv("./Streamlit/pages/images/inception/class_report.txt", 
-                     sep="\s+", 
-                     names=["Class", "Precision", "Recall", "F1-Score", "Support"])
+                     sep="\s+", header=0,
+                     names=["Class", "Precision", "Recall", "F1-Score"])
     st.dataframe(report)
 
 # The key idea behind InceptionV3 is the use of **Inception modules**, which allow the network to capture features at multiple scales simultaneously. Each module applies several convolutions of different sizes in parallel and concatenates the results, enabling the model to learn both fine and coarse features from an image.  
