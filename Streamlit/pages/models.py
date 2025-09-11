@@ -65,7 +65,14 @@ if section == "InceptionV3":
                      sep="\s+", header=0,
                      names=["Class", "Recall", "Specificity", "Precision", "F1-Score"])
     report.index = report.index + 1
-    st.dataframe(report.style.format("{:.2f}").set_properties(**{"text-align": "center"}))
+    numeric_cols = report.select_dtypes(include="number").columns
+    styled = report.style.format({col: "{:.2f}" for col in numeric_cols}) \
+                        .set_properties(**{"text-align": "center"}) \
+                        .set_table_styles([{
+                            "selector": "th",
+                            "props": [("text-align", "center"), ("font-weight", "bold")]
+                        }])
+    st.dataframe(styled)
 
 # The key idea behind InceptionV3 is the use of **Inception modules**, which allow the network to capture features at multiple scales simultaneously. Each module applies several convolutions of different sizes in parallel and concatenates the results, enabling the model to learn both fine and coarse features from an image.  
 
