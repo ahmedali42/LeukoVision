@@ -52,8 +52,9 @@ if section == "InceptionV3":
         model.summary(print_fn=lambda x: stream.write(x + "\n"))
         st.code(stream.getvalue())
     st.markdown('### Performace')
-    show_img = st.checkbox("Show InceptionV3 loss and accuracy plot")
-    if show_img:
+    # show_img = st.checkbox("Show InceptionV3 loss and accuracy plot")
+    # if show_img:
+    if st.toggle("Show InceptionV3 loss and accuracy plot"):
         st.image(white_bg('./Streamlit/pages/images/inception/loss_acc.png'), caption='Loss and accruacy plot from InceptionV3 training',use_container_width=True)
 
 elif section == "ResNet50":
