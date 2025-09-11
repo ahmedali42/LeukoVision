@@ -79,8 +79,15 @@ if section == "InceptionV3":
                 the model and its suitability for automated cell classification tasks.
                 </div>
                 """,unsafe_allow_html=True)
-    with st.expander('Show classfication report'):
+    with st.toggle('Show classfication report'):
         st.dataframe(styled)
+    st.markdown('### Interpretability by Grad-CAM')
+    if st.toggle("Show InceptionV3 Grad-CAM results"):
+        st.image(white_bg('./Streamlit/pages/images/inception/predictions.png'), 
+                 caption='Four randomly selected test set images with their ground-truth '
+                 'and predicted labels. (Bottom) Corresponding Grad-CAM visualizations highlighting ' \
+                 'the image regions most influential in the model’s predictions.',use_container_width=True)
+    
 
 # The key idea behind InceptionV3 is the use of **Inception modules**, which allow the network to capture features at multiple scales simultaneously. Each module applies several convolutions of different sizes in parallel and concatenates the results, enabling the model to learn both fine and coarse features from an image.  
 
