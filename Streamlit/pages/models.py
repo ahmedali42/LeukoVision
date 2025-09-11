@@ -45,13 +45,14 @@ if section == "InceptionV3":
     </div>
     """,unsafe_allow_html=True)
 
-    st.image(white_bg('./Streamlit/pages/images/inceptionv3.png'), caption='Architecture diagram of InceptionV3',use_container_width=True)
+    st.image(white_bg('./Streamlit/pages/images/inception/inceptionv3.png'), caption='Architecture diagram of InceptionV3',use_container_width=True)
     model = InceptionV3(weights='imagenet')
     with st.expander("See Full Model Summary"):
         stream = io.StringIO()
         model.summary(print_fn=lambda x: stream.write(x + "\n"))
         st.code(stream.getvalue())
     st.markdown('### Performace')
+    st.image(white_bg('./Streamlit/pages/images/inception/loss_acc.png'), caption='Loss and accruacy plot from InceptionV3 training',use_container_width=True)
 
 elif section == "ResNet50":
     st.subheader("ResNet50 🧬")
