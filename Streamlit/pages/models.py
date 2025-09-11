@@ -56,7 +56,8 @@ if section == "InceptionV3":
     # if show_img:
     if st.toggle("Show InceptionV3 loss and accuracy plot"):
         st.image(white_bg('./Streamlit/pages/images/inception/loss_acc.png'), caption='Loss and accruacy plot from InceptionV3 training',use_container_width=True)
-
+    if st.toggle("Show InceptionV3 confusion matrix"):
+        st.image(white_bg('./Streamlit/pages/images/inception/cm.png'), caption='Confusion matrix of InceptionV3 test set',use_container_width=True)
 elif section == "ResNet50":
     st.subheader("ResNet50 🧬")
     
