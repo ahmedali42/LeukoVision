@@ -62,7 +62,7 @@ if section == "InceptionV3":
     [{'selector': 'th', 'props': [('text-align', 'center')]},
      {'selector': 'td', 'props': [('text-align', 'center')]}]))
     report = pd.read_csv("./Streamlit/pages/images/inception/class_report.txt", 
-                     sep="\s+", header=None, 
+                     sep="\s+", 
                      names=["Class", "Precision", "Recall", "F1-Score", "Support"])
     st.dataframe(report)
 
