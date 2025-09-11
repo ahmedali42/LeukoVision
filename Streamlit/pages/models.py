@@ -79,7 +79,7 @@ if section == "InceptionV3":
                 the model and its suitability for automated cell classification tasks.
                 </div>
                 """,unsafe_allow_html=True)
-    with st.toggle('Show classfication report'):
+    if st.toggle("Show classification report"):
         st.dataframe(styled)
     st.markdown('### Interpretability by Grad-CAM')
     if st.toggle("Show InceptionV3 Grad-CAM results"):
