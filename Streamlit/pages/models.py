@@ -82,6 +82,12 @@ if section == "InceptionV3":
     if st.toggle("Show classification report"):
         st.dataframe(styled)
     st.markdown('### Interpretability by Grad-CAM')
+    st.markdown(""" <div style="text-align: justify;">
+Grad-CAM visualization shows that the model consistently focuses on the cell itself while ignoring the 
+                background, suggesting that the classification is based on cytomorphological features 
+                of the cells rather than irrelevant image artifacts.
+                </div>
+                """,unsafe_allow_html=True)
     if st.toggle("Show InceptionV3 Grad-CAM results"):
         st.image(white_bg('./Streamlit/pages/images/inception/prediction.png'), 
                  caption='Four randomly selected test set images with their ground-truth '
