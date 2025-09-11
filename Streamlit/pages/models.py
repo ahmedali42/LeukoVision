@@ -5,7 +5,6 @@ from utils import white_bg
 import io
 from tensorflow.keras.applications import InceptionV3
 import numpy as np
-from sklearn.metrics import classification_report
 import pandas as pd
 
 
