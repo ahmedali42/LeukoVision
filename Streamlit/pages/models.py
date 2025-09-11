@@ -55,18 +55,12 @@ if section == "InceptionV3":
     if st.toggle("Show InceptionV3 loss and accuracy plot"):
         st.image(white_bg('./Streamlit/pages/images/inception/loss_acc.png'), caption='Loss and accruacy plot from InceptionV3 training',use_container_width=True)
     st.markdown(""" <div style="text-align: justify;">
-                The test set shows a very high accuracy of 98.28% and that is reflected in the digonal form of the confusion matrix.
+                The test set shows a very high accuracy of 98.28% 
+                and that is reflected in the digonal form of the confusion matrix.
                 </div>
                 """,unsafe_allow_html=True)
     if st.toggle("Show InceptionV3 confusion matrix"):
         st.image(white_bg('./Streamlit/pages/images/inception/cm.png'), caption='Confusion matrix of InceptionV3 test set',use_container_width=True)
-    # y=np.loadtxt('./Streamlit/pages/images/inception/y_true_y_pred.txt',dtype=int)
-    # y_true=y[:,0];y_pred=y[:,1]
-    # report = classification_report(y_true, y_pred, target_names=['BAS','EOS','EBO','IG','LYT','MON','NGS','PLA'], output_dict=True)
-    # df_report = pd.DataFrame(report).transpose()
-    # st.dataframe(df_report.style.format(precision=2).set_table_styles(
-    # [{'selector': 'th', 'props': [('text-align', 'center')]},
-    #  {'selector': 'td', 'props': [('text-align', 'center')]}]))
     report = pd.read_csv("./Streamlit/pages/images/inception/class_report.txt", 
                      sep="\s+", header=0,
                      names=["Class", "Recall", "Specificity", "Precision", "F1-Score"])
@@ -78,7 +72,15 @@ if section == "InceptionV3":
                             "selector": "th",
                             "props": [("text-align", "center"), ("font-weight", "bold")]
                         }])
-    st.dataframe(styled)
+    st.markdown(""" <div style="text-align: justify;">
+                The classification metrics consistently range between 0.96 and 1.00, 
+                demonstrating that the InceptionV3 model performs exceptionally well in 
+                distinguishing among different WBC subtypes. This highlights both the robustness of 
+                the model and its suitability for automated cell classification tasks.
+                </div>
+                """,unsafe_allow_html=True)
+    with st.expander('Show classfication report'):
+        st.dataframe(styled)
 
 # The key idea behind InceptionV3 is the use of **Inception modules**, which allow the network to capture features at multiple scales simultaneously. Each module applies several convolutions of different sizes in parallel and concatenates the results, enabling the model to learn both fine and coarse features from an image.  
 
