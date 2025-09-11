@@ -52,7 +52,9 @@ if section == "InceptionV3":
         model.summary(print_fn=lambda x: stream.write(x + "\n"))
         st.code(stream.getvalue())
     st.markdown('### Performace')
-    st.image(white_bg('./Streamlit/pages/images/inception/loss_acc.png'), caption='Loss and accruacy plot from InceptionV3 training',use_container_width=True)
+    show_img = st.checkbox("Show InceptionV3 loss and accuracy plot")
+    if show_img:
+        st.image(white_bg('./Streamlit/pages/images/inception/loss_acc.png'), caption='Loss and accruacy plot from InceptionV3 training',use_container_width=True)
 
 elif section == "ResNet50":
     st.subheader("ResNet50 🧬")
