@@ -46,6 +46,8 @@ if section == "InceptionV3":
     # show_img = st.checkbox("Show InceptionV3 loss and accuracy plot")
     # if show_img:
     if st.toggle("Show InceptionV3 loss and accuracy plot"):
+        st.markdown("The training accuracy approaches 99.87%, while the validation accuracy reaches" \
+        " 98.75%, demonstrating the model’s strong ability to accurately classify different cell types.")
         st.image(white_bg('./Streamlit/pages/images/inception/loss_acc.png'), caption='Loss and accruacy plot from InceptionV3 training',use_container_width=True)
     if st.toggle("Show InceptionV3 confusion matrix"):
         st.image(white_bg('./Streamlit/pages/images/inception/cm.png'), caption='Confusion matrix of InceptionV3 test set',use_container_width=True)
