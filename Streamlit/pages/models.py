@@ -83,7 +83,7 @@ if section == "InceptionV3":
         st.dataframe(styled)
     st.markdown('### Interpretability by Grad-CAM')
     if st.toggle("Show InceptionV3 Grad-CAM results"):
-        st.image(white_bg('./Streamlit/pages/images/inception/predictions.png'), 
+        st.image(white_bg('./Streamlit/pages/images/inception/prediction.png'), 
                  caption='Four randomly selected test set images with their ground-truth '
                  'and predicted labels. (Bottom) Corresponding Grad-CAM visualizations highlighting ' \
                  'the image regions most influential in the model’s predictions.',use_container_width=True)
