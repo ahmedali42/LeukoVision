@@ -104,6 +104,23 @@ Grad-CAM visualization shows that the model consistently focuses on the cell its
 #     - **Label smoothing** to improve generalization 
 
 elif section == "ResNet50":
+    st.subheader("ResNet50 🧬")
+    st.markdown("""
+        ### ResNet50 Overview  
+
+        ResNet50 (Residual Network, 50 layers) is a deep convolutional neural network introduced by Microsoft Research in 2015.  
+        It was designed to address the **vanishing gradient problem** that arises when training very deep networks.  
+
+        The key innovation in ResNet50 is the **residual block**, which introduces **skip connections** (or shortcuts) that allow the model to "skip" one or more layers. These shortcuts enable the network to directly pass information forward, making it easier to train very deep architectures.  
+
+        - **Depth:** 50 layers  
+        - **Architecture:** Built from convolutional layers, batch normalization, ReLU activations, and residual blocks with skip connections  
+        - **Strengths:** Efficient training of very deep networks, strong feature extraction, widely adopted in computer vision tasks  
+        - **Applications:** Image classification, object detection, medical imaging, and transfer learning in many domains  
+
+        ResNet50 became one of the most influential models in deep learning, forming the backbone of many modern architectures. Its ability to combine **depth with stability** makes it highly effective for tasks like blood cell classification.
+        """)
+
     model = ResNet50(weights='imagenet')
     with st.expander("See Full Model Summary"):
         stream = io.StringIO()
@@ -115,7 +132,6 @@ elif section == "ResNet50":
     97.90%, demonstrating the model’s strong ability to accurately classify different cell types.
                 </div>
                 """,unsafe_allow_html=True)
-    st.subheader("ResNet50 🧬")
     if st.toggle("Show ResNet50 loss and accuracy plot"):
         st.image(white_bg('./Streamlit/pages/images/resnet50/loss_acc.png'), caption='Loss and accruacy plot from ResNet50 training',use_container_width=True)
     st.markdown(""" <div style="text-align: justify;">
