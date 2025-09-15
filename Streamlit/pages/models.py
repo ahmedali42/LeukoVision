@@ -3,7 +3,7 @@ from streamlit_option_menu import option_menu
 import sys
 from utils import white_bg
 import io
-from tensorflow.keras.applications import InceptionV3
+from tensorflow.keras.applications import InceptionV3,ResNet50
 import numpy as np
 import pandas as pd
 
@@ -104,6 +104,17 @@ Grad-CAM visualization shows that the model consistently focuses on the cell its
 #     - **Label smoothing** to improve generalization 
 
 elif section == "ResNet50":
+    model = ResNet50(weights='imagenet')
+    with st.expander("See Full Model Summary"):
+        stream = io.StringIO()
+        model.summary(print_fn=lambda x: stream.write(x + "\n"))
+        st.code(stream.getvalue())
+    st.markdown('### Performace')
+    st.markdown(""" <div style="text-align: justify;">
+    The training accuracy approaches 99.85%, while the validation accuracy reaches 
+    97.90%, demonstrating the model’s strong ability to accurately classify different cell types.
+                </div>
+                """,unsafe_allow_html=True)
     st.subheader("ResNet50 🧬")
     if st.toggle("Show ResNet50 loss and accuracy plot"):
         st.image(white_bg('./Streamlit/pages/images/resnet50/loss_acc.png'), caption='Loss and accruacy plot from ResNet50 training',use_container_width=True)
