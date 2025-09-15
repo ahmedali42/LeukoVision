@@ -106,21 +106,16 @@ Grad-CAM visualization shows that the model consistently focuses on the cell its
 elif section == "ResNet50":
     st.subheader("ResNet50 🧬")
     st.markdown("""
-        ### ResNet50 Overview  
-
+        ### Overview  
+        <div style="text-align: justify;">
         ResNet50 (Residual Network, 50 layers) is a deep convolutional neural network introduced by Microsoft Research in 2015.  
-        It was designed to address the **vanishing gradient problem** that arises when training very deep networks.  
-
+         
         The key innovation in ResNet50 is the **residual block**, which introduces **skip connections** (or shortcuts) that allow the model to "skip" one or more layers. These shortcuts enable the network to directly pass information forward, making it easier to train very deep architectures.  
-
-        - **Depth:** 50 layers  
-        - **Architecture:** Built from convolutional layers, batch normalization, ReLU activations, and residual blocks with skip connections  
-        - **Strengths:** Efficient training of very deep networks, strong feature extraction, widely adopted in computer vision tasks  
-        - **Applications:** Image classification, object detection, medical imaging, and transfer learning in many domains  
-
+ 
         ResNet50 became one of the most influential models in deep learning, forming the backbone of many modern architectures. Its ability to combine **depth with stability** makes it highly effective for tasks like blood cell classification.
-        """)
-
+        </div>
+        """,unsafe_allow_html=True)
+    st.image(white_bg('./Streamlit/pages/images/resnet50/resnet50.png'), caption='Architecture diagram of ResNet50',use_container_width=True)
     model = ResNet50(weights='imagenet')
     with st.expander("See Full Model Summary"):
         stream = io.StringIO()
@@ -173,6 +168,13 @@ Grad-CAM visualization shows that the model consistently focuses on the cell its
                  caption='Four randomly selected test set images with their ground-truth '
                  'and predicted labels. (Bottom) Corresponding Grad-CAM visualizations highlighting ' \
                  'the image regions most influential in the model’s predictions.',use_container_width=True)
+
+
+#It was designed to address the **vanishing gradient problem** that arises when training very deep networks. 
+# - **Depth:** 50 layers  
+# - **Architecture:** Built from convolutional layers, batch normalization, ReLU activations, and residual blocks with skip connections  
+# - **Strengths:** Efficient training of very deep networks, strong feature extraction, widely adopted in computer vision tasks  
+# - **Applications:** Image classification, object detection, medical imaging, and transfer learning in many domains 
 
 elif section == "VGG16":
     st.subheader("VGG16 🧪")
