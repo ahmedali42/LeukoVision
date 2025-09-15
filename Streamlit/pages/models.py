@@ -180,54 +180,26 @@ Grad-CAM visualization shows that the model consistently focuses on the cell its
 elif section == "VGG16":
     st.subheader("VGG16 🧪")
     st.markdown("""
-        ### Overview  
+        ### Overview
+                
         <div style="text-align: justify;">
+        
         VGG16 is a deep convolutional neural network developed by the Visual Geometry Group (VGG) at the University of Oxford in 2014.  
         It became famous for its **simplicity and effectiveness**, achieving excellent results in the ImageNet competition.  
 
         The main design idea of VGG16 is the use of **very small 3×3 convolutional filters** stacked sequentially, instead of larger filters. By stacking multiple small filters, the network increases depth and non-linearity while keeping the number of parameters manageable.  
 
-        - **Depth:** 16 layers with learnable weights (13 convolutional layers + 3 fully connected layers)  
-        - **Architecture:** Repeated blocks of convolution + ReLU activation, followed by max pooling layers, and finally fully connected layers  
-        - **Strengths:** Simple and uniform architecture, strong baseline model, widely used in transfer learning  
-        - **Limitations:** Large model size (~138 million parameters), high computational cost compared to newer architectures  
-        - **Applications:** Image classification, feature extraction, transfer learning in medical and biological imaging  
 
         Despite being older, VGG16 remains a **benchmark architecture** and is still used in research and applications because of its simplicity and ease of adaptation.
         </div>
                 """,unsafe_allow_html=True)
     
 
-    fig = go.Figure()
 
-        # Add convolutional + pooling blocks
-    layers = ["Conv3-64", "Conv3-64", "MaxPool",
-                "Conv3-128", "Conv3-128", "MaxPool",
-                "Conv3-256", "Conv3-256", "Conv3-256", "MaxPool",
-                "Conv3-512", "Conv3-512", "Conv3-512", "MaxPool",
-                "Conv3-512", "Conv3-512", "Conv3-512", "MaxPool",
-                "FC-4096", "FC-4096", "FC-1000"]
 
-    x_positions = list(range(len(layers)))
-
-    fig.add_trace(go.Bar(
-            x=x_positions,
-            y=[1]*len(layers),  # uniform block height
-            text=layers,
-            textposition="inside",
-            marker=dict(color=["#3366cc" if "Conv" in l else
-                            "#dc3912" if "MaxPool" in l else
-                            "#ff9900" for l in layers]),
-            hoverinfo="text",
-        ))
-
-    fig.update_layout(
-            title="VGG16 Architecture",
-            xaxis=dict(showticklabels=False),
-            yaxis=dict(visible=False),
-            bargap=0.2,
-            height=400
-        )
-
-    st.plotly_chart(fig, use_container_width=True)
+# - **Depth:** 16 layers with learnable weights (13 convolutional layers + 3 fully connected layers)  
+# - **Architecture:** Repeated blocks of convolution + ReLU activation, followed by max pooling layers, and finally fully connected layers  
+# - **Strengths:** Simple and uniform architecture, strong baseline model, widely used in transfer learning  
+# - **Limitations:** Large model size (~138 million parameters), high computational cost compared to newer architectures  
+# - **Applications:** Image classification, feature extraction, transfer learning in medical and biological imaging  
 
