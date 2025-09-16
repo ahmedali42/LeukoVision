@@ -91,6 +91,6 @@ Finally, to address class imbalance in the combined dataset, we applied an **ove
 
 As a result, we obtained a more balanced dataset, improving model generalization and performance.  
 The final oversampled dataset is publicly available here:  
-👉 <a href="https://www.kaggle.com/datasets/ahmedali42/spanish-dataset/data" target="_blank">Kaggle: Spanish Dataset</a>  
+👉 <a href="https://www.kaggle.com/datasets/ahmedali42/dataset-spain-germany/data" target="_blank">Kaggle: Combined Dataset</a>  
 </div>
 """, unsafe_allow_html=True)
