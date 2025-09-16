@@ -6,6 +6,17 @@ import pandas as pd
 
 st.title('Data')
 
+st.markdown(""" <div style="text-align: justify;">
+In this project, we used two publicly available datasets from independent research groups:
+
+- **University of Barcelona**: Contains ~17,000 single-cell images across **8 blood cell classes**.  
+- **Multi-university collaboration in Germany**: Provides ~18,000 single-cell images spanning **15 blood cell classes**.  
+
+The table below summarizes the different cell types and the number of images available in each dataset.
+</div>
+""",unsafe_allow_html=True)
+
+
 
 # Load data
 cell = np.loadtxt('./Streamlit/pages/count_spanish_german_chinese.txt', usecols=0, dtype=str)
@@ -38,10 +49,6 @@ fig.update_layout(
     template='plotly_white'
 )
 
-# Display in Streamlit
-st.plotly_chart(fig, use_container_width=True)
-
-
 file_path = './Streamlit/pages/count_spanish_german_chinese.txt'
 df = pd.read_csv(file_path, 
                  sep='\s+',          # whitespace separator
@@ -55,16 +62,8 @@ df.insert(0, "Cell type", cell_name)
 df=df.drop('Chinese',axis=1)
 styled_df = df.style.set_properties(**{'text-align': 'center'}) \
                     .set_table_styles([dict(selector='th', props=[('text-align', 'center')])])
-# Display in Streamlit
+
 st.write("### Blood Cell Counts Across Datasets")
 st.dataframe(styled_df)
 
-st.subheader("Citation")
-st.code("""
-@article{szegedy2016rethinking,
-  title={Rethinking the Inception Architecture for Computer Vision},
-  author={Szegedy, Christian and Vanhoucke, Vincent and Ioffe, Sergey and Shlens, Jon and Wojna, Zbigniew},
-  journal={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
-  year={2016}
-}
-""", language="text")
+st.plotly_chart(fig, use_container_width=True)
