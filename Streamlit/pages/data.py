@@ -6,15 +6,17 @@ import pandas as pd
 
 st.title('Data')
 
-st.markdown(""" <div style="text-align: justify;">
-In this project, we used two publicly available datasets from independent research groups:
+st.markdown(""" 
+<div style="text-align: justify;">
+In this project, we combined two publicly available datasets from independent research groups:
 
-- **University of Barcelona**: Contains ~17,000 single-cell images across **8 blood cell classes**.  
-- **Multi-university collaboration in Germany**: Provides ~18,000 single-cell images spanning **15 blood cell classes**.  
+- **University of Barcelona**: ~17,000 single-cell images across **8 blood cell classes**.  
+- **Multi-university collaboration in Germany**: ~18,000 single-cell images across **15 blood cell classes**.  
 
-The table below summarizes the different cell types and the number of images available in each dataset.
+The table below summarizes the blood cell types and number of images per dataset.  
+Additionally, we provide bar charts to visualize the class distributions and highlight dataset imbalances.  
 </div>
-""",unsafe_allow_html=True)
+""", unsafe_allow_html=True)
 
 
 
@@ -67,3 +69,28 @@ st.write("### Blood Cell Counts Across Datasets")
 st.dataframe(styled_df)
 
 st.plotly_chart(fig, use_container_width=True)
+
+st.markdown(""" 
+<div style="text-align: justify;">
+To harmonize the two datasets, the following steps were performed:
+
+1. **Class removal**: Excluded <i>Smudge cell</i>, <i>Not Assigned</i>, <i>Monoblast</i>, and <i>Myeloblast</i> due to low counts or ambiguity.  
+2. **Class merging**: Combined <i>Metamyelocyte</i>, <i>Myelocyte</i>, <i>Promyelocyte (bilobed)</i>, and <i>Promyelocyte</i> into a single class called **Immature Granulocytes**.  
+3. **Class unification**: Merged visually similar categories, such as <i>Lymphocyte (atypical)</i> with <i>Lymphocyte (typical)</i>, and <i>Neutrophil (band)</i> with <i>Neutrophil (segmented)</i>.  
+
+This preprocessing ensured consistency across the datasets and simplified downstream model training.  
+</div>
+""", unsafe_allow_html=True)
+
+st.markdown(""" 
+<div style="text-align: justify;">
+Finally, to address class imbalance in the combined dataset, we applied an **oversampling strategy**:  
+
+- For underrepresented classes, existing images were randomly selected and augmented by applying random rotations (1°–359°).  
+- This process was repeated until all classes reached the size of the largest class.  
+
+As a result, we obtained a more balanced dataset, improving model generalization and performance.  
+The final oversampled dataset is publicly available here:  
+👉 <a href="https://www.kaggle.com/datasets/ahmedali42/spanish-dataset/data" target="_blank">Kaggle: Spanish Dataset</a>  
+</div>
+""", unsafe_allow_html=True)
