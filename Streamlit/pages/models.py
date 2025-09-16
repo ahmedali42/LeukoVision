@@ -149,7 +149,7 @@ elif section == "ResNet50":
                             "props": [("text-align", "center"), ("font-weight", "bold")]
                         }])
     st.markdown(""" <div style="text-align: justify;">
-                The classification metrics consistently range between 0.96 and 1.00, 
+                The classification metrics consistently range between 0.94 and 1.00, 
                 demonstrating that the ResNet50 model performs exceptionally well in 
                 distinguishing among different WBC subtypes. This highlights both the robustness of 
                 the model and its suitability for automated cell classification tasks.
@@ -164,7 +164,7 @@ Grad-CAM visualization shows that the model consistently focuses on the cell its
                 of the cells rather than irrelevant image artifacts.
                 </div>
                 """,unsafe_allow_html=True)
-    if st.toggle("Show InceptionV3 Grad-CAM results"):
+    if st.toggle("Show ResNet50 Grad-CAM results"):
         st.image(white_bg('./Streamlit/pages/images/resnet50/prediction.png'), 
                  caption='Four randomly selected test set images with their ground-truth '
                  'and predicted labels. (Bottom) Corresponding Grad-CAM visualizations highlighting ' \
