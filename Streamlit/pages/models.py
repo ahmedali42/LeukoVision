@@ -226,10 +226,10 @@ elif section == "VGG16":
                             "props": [("text-align", "center"), ("font-weight", "bold")]
                         }])
     st.markdown(""" <div style="text-align: justify;">
-                The classification metrics consistently range between 0.96 and 1.00, 
-                demonstrating that the ResNet50 model performs exceptionally well in 
-                distinguishing among different WBC subtypes. This highlights both the robustness of 
-                the model and its suitability for automated cell classification tasks.
+                The classification metrics consistently range between 0.93 and 1.00 (except IG), 
+                demonstrating that the VGG16 model performs exceptionally well in 
+                distinguishing among different WBC subtypes. However, it failes to distingush between 
+                the immature cells and the mature one, reflected in the IG class.
                 </div>
                 """,unsafe_allow_html=True)
     if st.toggle("Show classification report"):

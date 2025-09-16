@@ -15,14 +15,14 @@ from utils import make_gradcam_heatmap, make_gradcam_heatmap_keras, get_canny_ed
 st.title("Vision Lab")
 class_names = ['BAS', 'EOS', 'EBO', 'IG', 'LYT', 'MON', 'NGS', 'PLA']
 
-@st.cache(ttl=24*3600)
+@st.cache_data
 # --- Load Models ---
 def load_inception():
     return torch.load('./Streamlit/inceptionv3.pth', weights_only=False,map_location=torch.device('cpu'))
-@st.cache(ttl=24*3600)
+@st.cache_data
 def load_resnet():
     return torch.load('./Streamlit/resnet_model.pth', weights_only=False,map_location=torch.device('cpu'))
-@st.cache(ttl=24*3600)
+@st.cache_data
 def load_vgg16():
     return load_model('./Streamlit/vgg16_model.h5')
 inception_model = load_inception()
