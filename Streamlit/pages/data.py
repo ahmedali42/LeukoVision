@@ -67,4 +67,4 @@ st.code("""
   journal={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
   year={2016}
 }
-""", language="bibtex")
+""", language="text")
