@@ -179,73 +179,73 @@ Grad-CAM visualization shows that the model consistently focuses on the cell its
 
 elif section == "VGG16":
     st.subheader("VGG16 🧪")
-    # st.markdown("""
-    #     ### Overview
+    st.markdown("""
+        ### Overview
                 
-    #     <div style="text-align: justify;">
+        <div style="text-align: justify;">
         
-    #     VGG16 is a deep convolutional neural network developed by the Visual Geometry Group (VGG) at the University of Oxford in 2014.  
-    #     It became famous for its **simplicity and effectiveness**, achieving excellent results in the ImageNet competition.  
+        VGG16 is a deep convolutional neural network developed by the Visual Geometry Group (VGG) at the University of Oxford in 2014.  
+        It became famous for its **simplicity and effectiveness**, achieving excellent results in the ImageNet competition.  
 
-    #     The main design idea of VGG16 is the use of **very small 3×3 convolutional filters** stacked sequentially, instead of larger filters. By stacking multiple small filters, the network increases depth and non-linearity while keeping the number of parameters manageable.  
+        The main design idea of VGG16 is the use of **very small 3×3 convolutional filters** stacked sequentially, instead of larger filters. By stacking multiple small filters, the network increases depth and non-linearity while keeping the number of parameters manageable.  
 
 
-    #     Despite being older, VGG16 remains a **benchmark architecture** and is still used in research and applications because of its simplicity and ease of adaptation.
-    #     </div>
-    #             """,unsafe_allow_html=True)
-    # st.image(white_bg('./Streamlit/pages/images/vgg16/vgg16.png'), caption='Architecture diagram of VGG16',use_container_width=True)
-    # model = VGG16(weights='imagenet')
-    # with st.expander("See Full Model Summary"):
-    #     stream = io.StringIO()
-    #     model.summary(print_fn=lambda x: stream.write(x + "\n"))
-    #     st.code(stream.getvalue())
-    # st.markdown('### Performace')
-    # st.markdown(""" <div style="text-align: justify;">
-    # The training accuracy approaches 99.80%, while the validation accuracy reaches 
-    # 97.92%, demonstrating the model’s strong ability to accurately classify different cell types.
-    #             </div>
-    #             """,unsafe_allow_html=True)
-#     if st.toggle("Show VGG16 loss and accuracy plot"):
-#         st.image(white_bg('./Streamlit/pages/images/vgg16/loss_acc.png'), caption='Loss and accruacy plot from VGG16 training',use_container_width=True)
-#     st.markdown(""" <div style="text-align: justify;">
-#                 The test set shows a very high accuracy of 96.07% 
-#                 and that is reflected in the digonal form of the confusion matrix.
-#                 </div>
-#                 """,unsafe_allow_html=True)
-#     if st.toggle("Show VGG16 confusion matrix"):
-#         st.image(white_bg('./Streamlit/pages/images/vgg16/cm.png'), caption='Confusion matrix of VGG16 test set',use_container_width=True)
-#     report = pd.read_csv("./Streamlit/pages/images/vgg16/class_report.txt", 
-#                      sep="\s+", header=0,
-#                      names=["Class", "Recall", "Specificity", "Precision", "F1-Score"])
-#     report.index = report.index + 1
-#     numeric_cols = report.select_dtypes(include="number").columns
-#     styled = report.style.format({col: "{:.2f}" for col in numeric_cols}) \
-#                         .set_properties(**{"text-align": "center"}) \
-#                         .set_table_styles([{
-#                             "selector": "th",
-#                             "props": [("text-align", "center"), ("font-weight", "bold")]
-#                         }])
-#     st.markdown(""" <div style="text-align: justify;">
-#                 The classification metrics consistently range between 0.96 and 1.00, 
-#                 demonstrating that the ResNet50 model performs exceptionally well in 
-#                 distinguishing among different WBC subtypes. This highlights both the robustness of 
-#                 the model and its suitability for automated cell classification tasks.
-#                 </div>
-#                 """,unsafe_allow_html=True)
-#     if st.toggle("Show classification report"):
-#         st.dataframe(styled)
-#     st.markdown('### Interpretability by Grad-CAM')
-#     st.markdown(""" <div style="text-align: justify;">
-# Grad-CAM visualization shows that the model consistently focuses on the cell itself while ignoring the 
-#                 background, suggesting that the classification is based on cytomorphological features 
-#                 of the cells rather than irrelevant image artifacts.
-#                 </div>
-#                 """,unsafe_allow_html=True)
-#     if st.toggle("Show InceptionV3 Grad-CAM results"):
-#         st.image(white_bg('./Streamlit/pages/images/vgg16/prediction.png'), 
-#                  caption='Four randomly selected test set images with their ground-truth '
-#                  'and predicted labels. (Bottom) Corresponding Grad-CAM visualizations highlighting ' \
-#                  'the image regions most influential in the model’s predictions.',use_container_width=True)
+        Despite being older, VGG16 remains a **benchmark architecture** and is still used in research and applications because of its simplicity and ease of adaptation.
+        </div>
+                """,unsafe_allow_html=True)
+    st.image(white_bg('./Streamlit/pages/images/vgg16/vgg16.png'), caption='Architecture diagram of VGG16',use_container_width=True)
+    model = VGG16(weights='imagenet')
+    with st.expander("See Full Model Summary"):
+        stream = io.StringIO()
+        model.summary(print_fn=lambda x: stream.write(x + "\n"))
+        st.code(stream.getvalue())
+    st.markdown('### Performace')
+    st.markdown(""" <div style="text-align: justify;">
+    The training accuracy approaches 99.80%, while the validation accuracy reaches 
+    97.92%, demonstrating the model’s strong ability to accurately classify different cell types.
+                </div>
+                """,unsafe_allow_html=True)
+    if st.toggle("Show VGG16 loss and accuracy plot"):
+        st.image(white_bg('./Streamlit/pages/images/vgg16/loss_acc.png'), caption='Loss and accruacy plot from VGG16 training',use_container_width=True)
+    st.markdown(""" <div style="text-align: justify;">
+                The test set shows a very high accuracy of 96.07% 
+                and that is reflected in the digonal form of the confusion matrix.
+                </div>
+                """,unsafe_allow_html=True)
+    if st.toggle("Show VGG16 confusion matrix"):
+        st.image(white_bg('./Streamlit/pages/images/vgg16/cm.png'), caption='Confusion matrix of VGG16 test set',use_container_width=True)
+    report = pd.read_csv("./Streamlit/pages/images/vgg16/class_report.txt", 
+                     sep="\s+", header=0,
+                     names=["Class", "Recall", "Specificity", "Precision", "F1-Score"])
+    report.index = report.index + 1
+    numeric_cols = report.select_dtypes(include="number").columns
+    styled = report.style.format({col: "{:.2f}" for col in numeric_cols}) \
+                        .set_properties(**{"text-align": "center"}) \
+                        .set_table_styles([{
+                            "selector": "th",
+                            "props": [("text-align", "center"), ("font-weight", "bold")]
+                        }])
+    st.markdown(""" <div style="text-align: justify;">
+                The classification metrics consistently range between 0.96 and 1.00, 
+                demonstrating that the ResNet50 model performs exceptionally well in 
+                distinguishing among different WBC subtypes. This highlights both the robustness of 
+                the model and its suitability for automated cell classification tasks.
+                </div>
+                """,unsafe_allow_html=True)
+    if st.toggle("Show classification report"):
+        st.dataframe(styled)
+    st.markdown('### Interpretability by Grad-CAM')
+    st.markdown(""" <div style="text-align: justify;">
+Grad-CAM visualization shows that the model consistently focuses on the cell itself while ignoring the 
+                background, suggesting that the classification is based on cytomorphological features 
+                of the cells rather than irrelevant image artifacts.
+                </div>
+                """,unsafe_allow_html=True)
+    if st.toggle("Show InceptionV3 Grad-CAM results"):
+        st.image(white_bg('./Streamlit/pages/images/vgg16/prediction.png'), 
+                 caption='Four randomly selected test set images with their ground-truth '
+                 'and predicted labels. (Bottom) Corresponding Grad-CAM visualizations highlighting ' \
+                 'the image regions most influential in the model’s predictions.',use_container_width=True)
 
 
 
