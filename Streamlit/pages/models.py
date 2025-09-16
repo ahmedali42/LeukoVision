@@ -241,7 +241,7 @@ Grad-CAM visualization shows that the model consistently focuses on the cell its
                 of the cells rather than irrelevant image artifacts.
                 </div>
                 """,unsafe_allow_html=True)
-    if st.toggle("Show InceptionV3 Grad-CAM results"):
+    if st.toggle("Show VGG16 Grad-CAM results"):
         st.image(white_bg('./Streamlit/pages/images/vgg16/prediction.png'), 
                  caption='Four randomly selected test set images with their ground-truth '
                  'and predicted labels. (Bottom) Corresponding Grad-CAM visualizations highlighting ' \
