@@ -11,7 +11,7 @@ st.markdown("""
 In this project, we combined two publicly available datasets from independent research groups:
 
 - **University of Barcelona**: ~17,000 single-cell images across **8 blood cell classes**. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0169260719303578" target="_blank">(Acevedo et al. 2019)</a>  
-- **Multi-university collaboration in Germany**: ~18,000 single-cell images across **15 blood cell classes**. <a href="https://www.nature.com/articles/s42256-019-0101-9" target="_blank">(Matek et al. 2019)</a> 
+- **Multi-university collaboration in Germany**: ~18,000 single-cell images across **17 blood cell classes**. <a href="https://www.nature.com/articles/s42256-019-0101-9" target="_blank">(Matek et al. 2019)</a> 
 
 The table below summarizes the blood cell types and number of images per dataset.  
 Additionally, we provide bar charts to visualize the class distributions and highlight dataset imbalances.  
