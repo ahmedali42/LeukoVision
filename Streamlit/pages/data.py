@@ -58,3 +58,13 @@ styled_df = df.style.set_properties(**{'text-align': 'center'}) \
 # Display in Streamlit
 st.write("### Blood Cell Counts Across Datasets")
 st.dataframe(styled_df)
+
+st.subheader("Citation")
+st.code("""
+@article{szegedy2016rethinking,
+  title={Rethinking the Inception Architecture for Computer Vision},
+  author={Szegedy, Christian and Vanhoucke, Vincent and Ioffe, Sergey and Shlens, Jon and Wojna, Zbigniew},
+  journal={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  year={2016}
+}
+""", language="bibtex")
