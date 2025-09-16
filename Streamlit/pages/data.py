@@ -84,7 +84,7 @@ This preprocessing ensured consistency across the datasets and simplified downst
 
 st.markdown(""" 
 <div style="text-align: justify;">
-Finally, to address class imbalance in the combined dataset, we applied an **oversampling strategy** :  
+Finally, to address class imbalance in the combined dataset, we applied an oversampling strategy:  
 
 - For underrepresented classes, existing images were randomly selected and augmented by applying random rotations (1°–359°).  
 - This process was repeated until all classes reached the size of the largest class.  
