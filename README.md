@@ -17,7 +17,6 @@ The folder structure is as follow:
     |   |_resnet50
     |   |_vgg16
     |_Streamlit
-    |_Report
 
 ## How to use our models?
 
