@@ -179,32 +179,32 @@ Grad-CAM visualization shows that the model consistently focuses on the cell its
 
 elif section == "VGG16":
     st.subheader("VGG16 🧪")
-    st.markdown("""
-        ### Overview
+    # st.markdown("""
+    #     ### Overview
                 
-        <div style="text-align: justify;">
+    #     <div style="text-align: justify;">
         
-        VGG16 is a deep convolutional neural network developed by the Visual Geometry Group (VGG) at the University of Oxford in 2014.  
-        It became famous for its **simplicity and effectiveness**, achieving excellent results in the ImageNet competition.  
+    #     VGG16 is a deep convolutional neural network developed by the Visual Geometry Group (VGG) at the University of Oxford in 2014.  
+    #     It became famous for its **simplicity and effectiveness**, achieving excellent results in the ImageNet competition.  
 
-        The main design idea of VGG16 is the use of **very small 3×3 convolutional filters** stacked sequentially, instead of larger filters. By stacking multiple small filters, the network increases depth and non-linearity while keeping the number of parameters manageable.  
+    #     The main design idea of VGG16 is the use of **very small 3×3 convolutional filters** stacked sequentially, instead of larger filters. By stacking multiple small filters, the network increases depth and non-linearity while keeping the number of parameters manageable.  
 
 
-        Despite being older, VGG16 remains a **benchmark architecture** and is still used in research and applications because of its simplicity and ease of adaptation.
-        </div>
-                """,unsafe_allow_html=True)
-    st.image(white_bg('./Streamlit/pages/images/vgg16/vgg16.png'), caption='Architecture diagram of VGG16',use_container_width=True)
-    model = VGG16(weights='imagenet')
-    with st.expander("See Full Model Summary"):
-        stream = io.StringIO()
-        model.summary(print_fn=lambda x: stream.write(x + "\n"))
-        st.code(stream.getvalue())
-    st.markdown('### Performace')
-    st.markdown(""" <div style="text-align: justify;">
-    The training accuracy approaches 99.80%, while the validation accuracy reaches 
-    97.92%, demonstrating the model’s strong ability to accurately classify different cell types.
-                </div>
-                """,unsafe_allow_html=True)
+    #     Despite being older, VGG16 remains a **benchmark architecture** and is still used in research and applications because of its simplicity and ease of adaptation.
+    #     </div>
+    #             """,unsafe_allow_html=True)
+    # st.image(white_bg('./Streamlit/pages/images/vgg16/vgg16.png'), caption='Architecture diagram of VGG16',use_container_width=True)
+    # model = VGG16(weights='imagenet')
+    # with st.expander("See Full Model Summary"):
+    #     stream = io.StringIO()
+    #     model.summary(print_fn=lambda x: stream.write(x + "\n"))
+    #     st.code(stream.getvalue())
+    # st.markdown('### Performace')
+    # st.markdown(""" <div style="text-align: justify;">
+    # The training accuracy approaches 99.80%, while the validation accuracy reaches 
+    # 97.92%, demonstrating the model’s strong ability to accurately classify different cell types.
+    #             </div>
+    #             """,unsafe_allow_html=True)
 #     if st.toggle("Show VGG16 loss and accuracy plot"):
 #         st.image(white_bg('./Streamlit/pages/images/vgg16/loss_acc.png'), caption='Loss and accruacy plot from VGG16 training',use_container_width=True)
 #     st.markdown(""" <div style="text-align: justify;">
