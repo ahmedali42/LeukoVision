@@ -65,8 +65,9 @@ df=df.drop('Chinese',axis=1)
 styled_df = df.style.set_properties(**{'text-align': 'center'}) \
                     .set_table_styles([dict(selector='th', props=[('text-align', 'center')])])
 
-st.write("### Blood Cell Counts Across Datasets")
+# st.write("")
 st.dataframe(styled_df)
+st.markdown("<p style='text-align: center; font-size: 12px;'><i>Blood Cell Counts Across Datasets</i></p>", unsafe_allow_html=True)
 
 st.plotly_chart(fig, use_container_width=True)
 
