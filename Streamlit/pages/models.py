@@ -41,7 +41,7 @@ if section == "InceptionV3":
     """,unsafe_allow_html=True)
 
     st.image(white_bg('./Streamlit/pages/images/inception/inceptionv3.png'), caption='Architecture diagram of InceptionV3',use_container_width=True)
-    model = InceptionV3(weights='imagenet')
+    model = InceptionV3(weights=None)
     with st.expander("See Full Model Summary"):
         stream = io.StringIO()
         model.summary(print_fn=lambda x: stream.write(x + "\n"))
@@ -117,7 +117,7 @@ elif section == "ResNet50":
         </div>
         """,unsafe_allow_html=True)
     st.image(white_bg('./Streamlit/pages/images/resnet50/resnet50.png'), caption='Architecture diagram of ResNet50',use_container_width=True)
-    model = ResNet50(weights='imagenet')
+    model = ResNet50(weights=None)
     with st.expander("See Full Model Summary"):
         stream = io.StringIO()
         model.summary(print_fn=lambda x: stream.write(x + "\n"))
@@ -194,7 +194,7 @@ elif section == "VGG16":
         </div>
                 """,unsafe_allow_html=True)
     st.image(white_bg('./Streamlit/pages/images/vgg16/vgg16.png'), caption='Architecture diagram of VGG16',use_container_width=True)
-    model = VGG16(weights='imagenet')
+    model = VGG16(weights=None)
     with st.expander("See Full Model Summary"):
         stream = io.StringIO()
         model.summary(print_fn=lambda x: stream.write(x + "\n"))
