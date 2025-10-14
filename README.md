@@ -2,9 +2,9 @@
 
 This project aims to build a deep learning model to identify different types of WBCs. 
 The data that use as a referance for our model is introduced in the following publication:
-https://doi.org/10.1016/j.cmpb.2019.105020
+https://doi.org/10.1016/j.cmpb.2019.105020 & https://www.nature.com/articles/s42256-019-0101-9
 and the data is avaliable to download by the following link:
-https://data.mendeley.com/datasets/snkd93bnjr/1
+https://www.kaggle.com/datasets/ahmedali42/dataset-spain-germany
 
 ## What each folder do?
 
